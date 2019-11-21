@@ -1,28 +1,28 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const DeadlineSchema = new Schema({
-    Name: {
+const deadlineSchema = new Schema({
+    name: {
         type: String,
         required: true
     },
-    Type: {
+    type: {
         type: String,
         enum: ['Task', 'Assignment', 'Project', 'Quiz', 'Midterm', 'Final'],
         required: true
     },
-    CourseName : {
+    courseName : {
         type : String,
         required: true
     },
-    Deadline: {
+    deadline: {
         type: Date,
         required: true
     },
-    ProfessorName: {
+    professorName: {
         type: String,
         required: true
     }
 })
 
-module.exports = Deadline = mongoose.model('Deadline', DeadlineSchema)
+module.exports = deadline = mongoose.model('deadline', deadlineSchema)

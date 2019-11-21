@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 // API
-const Deadline = require('./routes/api/Deadline')
+const deadline = require('./routes/api/deadline')
 
 // set up express app
 const app = express();
@@ -31,7 +31,7 @@ app.get('/',(req,res) =>{
 })
  
 //Route handlers
-app.use('/api/deadline',Deadline)
+app.use('/api/deadline',deadline)
 
 //non existing routes
 app.use((req,res,next)=>{

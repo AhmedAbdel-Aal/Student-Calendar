@@ -1,23 +1,23 @@
 const Joi = require('joi')
 
 module.exports = {
-    CreateValidation: request => {
-        const CreateSchema = {
-            Name: Joi.string().required(),
-            Type: Joi.string().required(),
-            CourseName: Joi.string().required(),
-            Deadline: Joi.date().required().greater(Date.now()),
-            ProfessorName: Joi.string().required()
+    createValidation: request => {
+        const createSchema = {
+            name: Joi.string().required(),
+            type: Joi.string().required(),
+            courseName: Joi.string().required(),
+            deadline: Joi.date(),
+            professorName: Joi.string().required()
         }
 
-        return Joi.validate(request, CreateSchema)
+        return Joi.validate(request, createSchema)
     },
 
-    UpdateValidation: request => {
-        const UpdateSchema = {
-            Deadline: Joi.date().required().greater(Date.now())
+    updateValidation: request => {
+        const updateSchema = {
+            deadline: Joi.date()
         }
 
-        return Joi.validate(request, UpdateSchema)
+        return Joi.validate(request, updateSchema)
     }
 }
