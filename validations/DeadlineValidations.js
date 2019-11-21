@@ -6,7 +6,7 @@ module.exports = {
             name: Joi.string().required(),
             type: Joi.string().required(),
             courseName: Joi.string().required(),
-            deadline: Joi.date(),
+            deadline: Joi.date().required(),
             professorName: Joi.string().required()
         }
 
