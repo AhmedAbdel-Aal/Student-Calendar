@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 // API
 const Deadline = require('./routes/api/Deadline')
-
+const Students = require('./routes/api/student')
 // set up express app
 const app = express();
 global.app = module.exports = express();
@@ -29,9 +29,10 @@ app.use(express.urlencoded({extended: false}))
 app.get('/',(req,res) =>{
   res.send(`<h1>STUDENT CALENDAR ENTERY PPINT</h1>`)
 })
- 
+
 //Route handlers
 app.use('/api/deadline',Deadline)
+app.use('/api/student',Students)
 
 //non existing routes
 app.use((req,res,next)=>{
