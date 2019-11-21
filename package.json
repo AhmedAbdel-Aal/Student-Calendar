@@ -1,0 +1,28 @@
+{
+  "version": "1.0.0",
+  "description": "Student Calendar Project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AhmedAbdel-Aal/Student-Calendar.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AhmedAbdel-Aal/Student-Calendar"
+  },
+  "homepage": "https://github.com/AhmedAbdel-Aal/Student-Calendar/blob/master/README.md",
+  "dependencies": {
+    "config": "^3.0.1",
+    "express": "^4.16.4",
+    "joi": "^14.3.1",
+    "mongoose": "^5.4.16",
+    "moongoose": "0.0.5",
+    "nodemon": "^1.18.10",
+    "uuid": "^3.3.2"
+  }
+}
