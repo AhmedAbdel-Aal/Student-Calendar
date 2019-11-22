@@ -13,8 +13,8 @@ router.get("/", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   if (ObjectId.isValid(req.params.id)) {
-    const deadline = await deadline.findById(req.params.id);
-    if (deadline) res.json({ data: deadline });
+    const reqDeadline = await deadline.findById(req.params.id);
+    if (reqDeadline) res.json({ data: reqDeadline });
     else return res.status(404).send({ error: "Deadline does not exist" });
   } else return res.status(404).send({ error: "ID does not exist" });
 });
@@ -63,6 +63,53 @@ router.delete("/:id", async (req, res) => {
   } catch (error) {
     console.log(error);
     return res.status(400).send("Failed to delete the deadline");
+  }
+});
+
+router.post("/courseFiltering", async (req, res) => {
+  const deadlines = await deadline.find();
+  const fdeadlines = deadlines.filter(
+    u => u.courseName.toString() === req.body.courseName
+  );
+  if (fdeadlines.length == 0)
+    return res.send({ error: "No deadlines found for this course" });
+  else res.json({ data: fdeadlines });
+});
+
+router.post("/professorFiltering", async (req, res) => {
+  const deadlines = await deadline.find();
+  const fdeadlines = deadlines.filter(
+    u => u.professorName.toString() === req.body.professorName
+  );
+  if (fdeadlines.length == 0)
+    return res.send({ error: "No deadlines found for this professor" });
+  else res.json({ data: fdeadlines });
+});
+
+router.post("/typeFiltering", async (req, res) => {
+  const deadlines = await deadline.find();
+  const fdeadlines = deadlines.filter(u => u.type.toString() === req.body.type);
+  if (fdeadlines.length == 0)
+    return res.send({ error: "No deadlines found with this type" });
+  else res.json({ data: fdeadlines });
+});
+
+router.post("/courseTypeFiltering", async (req, res) => {
+  const deadlines = await deadline.find();
+  const fdeadlines = deadlines.filter(
+    u => u.courseName.toString() === req.body.courseName
+  );
+  if (fdeadlines.length == 0)
+    return res.send({ error: "No deadlines found for this course" });
+  else {
+    const ffdeadlines = fdeadlines.filter(
+      u => u.type.toString() === req.body.type
+    );
+    if (ffdeadlines.length == 0)
+      return res.send({
+        error: "No deadlines found for this course with this type"
+      });
+    else res.json({ data: ffdeadlines });
   }
 });
 
