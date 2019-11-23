@@ -99,7 +99,7 @@ router.get("/typeFiltering/:type", async (req, res) => {
 
 router.get("/courseTypeFiltering/:cc/:type", async (req, res) => {
   const deadlines = await deadline.find();
-  const courseCode = req.params.courseCode
+  const courseCode = req.params.cc
   const type = req.params.type
   const fdeadlines = deadlines.filter(
     u => u.courseName.toString() === courseCode
