@@ -66,44 +66,49 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-router.post("/courseFiltering", async (req, res) => {
+router.get("/courseFiltering/:course", async (req, res) => {
   const deadlines = await deadline.find();
+  const courseCode = req.params.course
   const fdeadlines = deadlines.filter(
-    u => u.courseName.toString() === req.body.courseName
+    u => u.courseName.toString() === courseCode
   );
   if (fdeadlines.length == 0)
     return res.send({ error: "No deadlines found for this course" });
   else res.json({ data: fdeadlines });
 });
 
-router.post("/professorFiltering", async (req, res) => {
+router.get("/professorFiltering/:pname", async (req, res) => {
   const deadlines = await deadline.find();
+  const pName = req.params.pname
   const fdeadlines = deadlines.filter(
-    u => u.professorName.toString() === req.body.professorName
+    u => u.professorName.toString() === pName
   );
   if (fdeadlines.length == 0)
     return res.send({ error: "No deadlines found for this professor" });
   else res.json({ data: fdeadlines });
 });
 
-router.post("/typeFiltering", async (req, res) => {
+router.get("/typeFiltering/:type", async (req, res) => {
   const deadlines = await deadline.find();
-  const fdeadlines = deadlines.filter(u => u.type.toString() === req.body.type);
+  const type = req.params.type
+  const fdeadlines = deadlines.filter(u => u.type.toString() === type);
   if (fdeadlines.length == 0)
     return res.send({ error: "No deadlines found with this type" });
   else res.json({ data: fdeadlines });
 });
 
-router.post("/courseTypeFiltering", async (req, res) => {
+router.get("/courseTypeFiltering/:cc/:type", async (req, res) => {
   const deadlines = await deadline.find();
+  const courseCode = req.params.courseCode
+  const type = req.params.type
   const fdeadlines = deadlines.filter(
-    u => u.courseName.toString() === req.body.courseName
+    u => u.courseName.toString() === courseCode
   );
   if (fdeadlines.length == 0)
     return res.send({ error: "No deadlines found for this course" });
   else {
     const ffdeadlines = fdeadlines.filter(
-      u => u.type.toString() === req.body.type
+      u => u.type.toString() === type
     );
     if (ffdeadlines.length == 0)
       return res.send({
