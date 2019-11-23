@@ -6,15 +6,12 @@ const router = express.Router();
 
 router.post("/login", async(req,res)=>{
     
-    user = req.body.user
-    pass = req.body.pass
-    let studentArray  = [] 
+    user = req.body.username
+    pass = req.body.password
 
-    axios.get('https://my.api.mockaroo.com/users.json?key=6bec3220').
+    axios.get('https://my-json-server.typicode.com/AhmedAbdel-Aal/GUC_FAKE_API/credentials').
     then((res) => {
         // do something with Google res
-        studentArray =  res.data 
-        console.log(res.data)
         return res.data
       })
       .then((json) => {
@@ -23,19 +20,16 @@ router.post("/login", async(req,res)=>{
 
             if(e.username === user && e.password === pass){
                 return res.status(200).send({msg : "logged successfully"})
-            }
-            else{
-                // console.log("not matched")
-                // console.log(e.username)
-                
-            }
+            }  
         })
-        return res.status(200).send({msg : "user not found"})
+        
+        return res.status(200).send({msg : "wrong email or password"})
+
 
       })
       .catch((err) => {
         // handle err
-        return res.status(400).send({error:"user/course not found"}) 
+        return res.status(400).send({error:"endpoint not found"}) 
       });
 
 });
