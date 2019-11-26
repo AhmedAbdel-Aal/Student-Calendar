@@ -8,7 +8,7 @@ router.post("/login", async(req,res)=>{
     
     user = req.body.username
     pass = req.body.password
-
+    console.log(req.body)
     axios.get('https://my-json-server.typicode.com/AhmedAbdel-Aal/GUC_FAKE_API/credentials').
     then((res) => {
         // do something with Google res
@@ -23,7 +23,7 @@ router.post("/login", async(req,res)=>{
             }  
         })
         
-        return res.status(200).send({msg : "wrong email or password"})
+        return res.status(200).send({err : "wrong email or password"})
 
 
       })
