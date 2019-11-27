@@ -1,13 +1,20 @@
 import React from 'react';
+import axios from "axios"
+import { BrowserRouter, Route, Switch ,Link} from "react-router-dom";
 import './App.css';
 
-import SideBar from './components/Sidebar'
-import Calendar from './components/Calendar'
+import Login from './pages/Login'
+import Home from './pages/Home'
+
 function App() {
   return (
     <div className="App">
-      <SideBar></SideBar>
-      <Calendar></Calendar>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/" render={props => <Login {...props}/>} />
+            <Route exact path="/home" render={props => <Home {...props}/> } />
+          </Switch>
+      </BrowserRouter>
     </div>
   );
 }
