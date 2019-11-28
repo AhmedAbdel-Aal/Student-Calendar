@@ -5,6 +5,7 @@ import './App.css';
 
 import Login from './pages/Login'
 import Home from './pages/Home'
+import Feed from './pages/FeedPage'
 
 function App() {
   return (
@@ -12,7 +13,9 @@ function App() {
         <BrowserRouter>
           <Switch>
             <Route exact path="/" render={props => <Login {...props}/>} />
-            <Route exact path="/home" render={props => <Home {...props}/> } />
+            <Route exact path="/home-calendar" render={props => <Home {...props}/> } />
+            <Route exact path="/home-feed" render={props => <Feed {...props}/> } />
+
           </Switch>
       </BrowserRouter>
     </div>

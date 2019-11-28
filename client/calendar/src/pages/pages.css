@@ -8,3 +8,16 @@
 
 
 }
+.feedpage{
+    overflow: hidden;
+    min-height: 100vh;
+    float: left;
+}
+
+.feed{
+    overflow: hidden;
+    min-height: 100vh;
+    float: left;
+    width: 70%;
+    margin: 20px;
+}
