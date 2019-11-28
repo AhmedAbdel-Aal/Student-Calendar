@@ -65,7 +65,7 @@ export default class FeedPage extends Component {
                     <Feed.Event>
                     <Feed.Content>
                       <Feed.Summary>
-                        <Feed.Date>deadline : {moment(deadlines[0]).format().substr(0, 10)}</Feed.Date>
+                        <Feed.Date>deadline : {moment(deadlines[0]).format('LLLL')}</Feed.Date>
                       </Feed.Summary>
                       {
                       (deadlines[0].Description)?(
@@ -84,7 +84,6 @@ export default class FeedPage extends Component {
                   </Feed.Event>
                   </List.Content>
                 </List.Item>
-
               </List>
 
               </div>

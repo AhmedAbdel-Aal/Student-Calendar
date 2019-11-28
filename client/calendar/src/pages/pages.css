@@ -14,7 +14,7 @@
     float: left;
 }
 
-.feed{
+.feed,.add-form{
     overflow: hidden;
     min-height: 100vh;
     float: left;
