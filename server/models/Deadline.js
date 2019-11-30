@@ -8,7 +8,7 @@ const deadlineSchema = new Schema({
     },
     type: {
         type: String,
-        enum: ['Task', 'Assignment', 'Project', 'Quiz', 'Midterm', 'Final','mini-Project','Milestone'],
+        enum: ['Task', 'Assignment', 'Project', 'Quiz', 'Midterm', 'Final','Mini-Project','Milestone'],
         required: true
     },
     courseName : {
