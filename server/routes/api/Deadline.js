@@ -30,7 +30,7 @@ router.post("/", async (req, res) => {
     res.json({ msg: "Deadline was created successfully", data: newDeadline });
   } catch (error) {
     console.log(error);
-    return res.status(400).send("Failed to create the deadline");
+    return res.status(400).send({error:"Failed to create the deadline"});
   }
 });
 
