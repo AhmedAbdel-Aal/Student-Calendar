@@ -22,6 +22,10 @@ const deadlineSchema = new Schema({
     professorName: {
         type: String,
         required: true
+    },
+    description: {
+        type: String,
+        required: false
     }
 })
 

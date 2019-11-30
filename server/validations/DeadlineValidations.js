@@ -7,7 +7,8 @@ module.exports = {
             type: Joi.string().required(),
             courseName: Joi.string().required(),
             deadline: Joi.date().required(),
-            professorName: Joi.string().required()
+            professorName: Joi.string().required(),
+            description: Joi.string()
         }
 
         return Joi.validate(request, createSchema)

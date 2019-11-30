@@ -46,7 +46,8 @@ export default class AddDeadline extends Component {
             type : this.state.type,
             courseName : this.state.courseCode,
             deadline : this.state.date,
-            professorName : "temp name" 
+            professorName : "temp name",
+            description: this.state.description
         }
         await axios.post("/api/deadline",body,
         (       'Access-Control-Allow-Headers',
