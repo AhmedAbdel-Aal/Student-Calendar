@@ -50,27 +50,28 @@ export default class FeedPage extends Component {
       if(loading){
         return (
             <div class="feedpage">
-                <SideBar></SideBar>
 
                 <div class="feed">
 
                 <h1>Deadlines feed</h1>
 
                 <List divided relaxed>
-                <List.Item style={{overflow:"hidden"}}>
+                <React.Fragment>
+                {deadlines.map(e=>
+                  <List.Item style={{overflow:"hidden",marginTop:"10px"}}>
                   <List.Icon name='tasks' size='large' verticalAlign='middle' />
                   <List.Content style={{textAlign:"left"}}>
-                    <List.Header as='a'>{deadlines[0].courseName} / {deadlines[0].type} / {deadlines[0].name} </List.Header>
+                    <List.Header as='a'>{e.courseName} / {e.type} / {e.name} </List.Header>
                     <List.Description as='a'></List.Description>
                     <Feed.Event>
                     <Feed.Content>
                       <Feed.Summary>
-                        <Feed.Date>deadline : {moment(deadlines[0]).format('LLLL')}</Feed.Date>
+                        <Feed.Date>deadline : {moment(e).format('LLLL')}</Feed.Date>
                       </Feed.Summary>
                       {
-                      (deadlines[0].Description)?(
+                      (e.Description)?(
                       <Feed.Extra text>
-                        {deadlines[0].Description}
+                        {e.Description}
                       </Feed.Extra>
                       )
                       :
@@ -83,7 +84,10 @@ export default class FeedPage extends Component {
                     </Feed.Content>
                   </Feed.Event>
                   </List.Content>
-                </List.Item>
+                  </List.Item>
+
+                 )}
+                 </React.Fragment>
               </List>
 
               </div>
