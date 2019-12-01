@@ -20,6 +20,26 @@ export default class FeedPage extends Component {
 }
 
   componentDidMount=async()=>{
+
+    
+    var courses = []
+    const body = {
+        username : localStorage.getItem('username'),
+        password : localStorage.getItem('password')
+    }
+    await axios.post("/api/student/login",body,
+    (       'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  ))
+      .then(res =>  res.data)
+      .then(json =>{
+        console.log(json.data.courses)  
+        courses = json.data.courses
+        console.log(courses)
+
+    })
+       .catch(error => {  this.setState({error})} );
+
     await axios.get("/api/deadline",
     (       'Access-Control-Allow-Headers',
     'Origin, X-Requested-With, Content-Type, Accept'
@@ -31,6 +51,8 @@ export default class FeedPage extends Component {
             let arr = []
             arr = this.state.deadlines
             json.data.map(e =>{
+              const flag = courses.find(ele=>{if(ele===e.courseName){return true;}else{return false;}})
+              if(flag)
                 arr.push(e)
 
             })
@@ -50,7 +72,7 @@ export default class FeedPage extends Component {
       if(loading){
         return (
             <div class="feedpage">
-
+                <SideBar></SideBar>
                 <div class="feed">
 
                 <h1>Deadlines feed</h1>

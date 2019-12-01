@@ -16,13 +16,34 @@ export default class Calendar extends React.Component {
         this.state = {
             calendarWeekends: true,
             calendarEvents: [ // initial event data
-                { title: 'Event', start: '2019-11-01' },
+               
             ],
             loading:false,
+            courses:[],
+            
         };
     }
 
     componentDidMount=async()=>{
+        
+        var courses = []
+        const body = {
+            username : localStorage.getItem('username'),
+            password : localStorage.getItem('password')
+        }
+        await axios.post("/api/student/login",body,
+        (       'Access-Control-Allow-Headers',
+        'Origin, X-Requested-With, Content-Type, Accept'
+      ))
+          .then(res =>  res.data)
+          .then(json =>{
+            console.log(json.data.courses)  
+            courses = json.data.courses
+            console.log(courses)
+
+        })
+           .catch(error => {  this.setState({error})} );
+
         await axios.get("/api/deadline",
         (       'Access-Control-Allow-Headers',
         'Origin, X-Requested-With, Content-Type, Accept'
@@ -31,11 +52,13 @@ export default class Calendar extends React.Component {
           .then(json =>{
             if(json.data){
                 console.log(json.data)
+                console.log(courses)
                 let arr = []
                 arr = this.state.calendarEvents
                 json.data.map(e =>{
-                    arr.push({title:e.name,start:moment(e.deadline).format().substr(0, 10)})
-
+                    const flag = courses.find(ele=>{if(ele===e.courseName){return true;}else{return false;}})
+                    if(flag)
+                     arr.push({title:e.name,start:moment(e.deadline).format().substr(0, 10)})
                 })
                 this.setState({
                     calendarEvents : arr,
@@ -49,6 +72,7 @@ export default class Calendar extends React.Component {
  
   render() {
     console.log(this.state.calendarEvents)  
+    console.log(this.state.error)
     if(this.state.loading){
         return (
         <div className='demo-app'>

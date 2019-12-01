@@ -4,7 +4,7 @@ import {Calendar} from 'primereact/calendar';
 import {Messages} from 'primereact/messages';
 import SideBar from '../components/Sidebar'
 import axios from 'axios'
-
+import './pages.css'
 const options = [
     { key: '1', text: 'Quiz', value: 'Quiz' },
     { key: '2', text: 'Milestone', value: 'Milestone' },
@@ -76,7 +76,7 @@ export default class AddDeadline extends Component {
         const { value } = this.state
         
         return (
-            <div class="add-deadline"> 
+            <div class="addDeadline"> 
 
             <SideBar></SideBar>
             <div class="add-form">

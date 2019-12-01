@@ -5,10 +5,11 @@
 .demo-app {
   font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
   font-size: 14px;
-  overflow: hidden;
+  overflow-y: scroll;
   width: 70%;
   float: left;
   margin: 20px;
+  height: 90%;
 }
 
 .demo-app-top {

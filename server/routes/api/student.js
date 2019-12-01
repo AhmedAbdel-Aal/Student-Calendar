@@ -19,7 +19,7 @@ router.post("/login", async(req,res)=>{
         json.find(e=>{
 
             if(e.username === user && e.password === pass){
-                return res.status(200).send({msg : "logged successfully"})
+                return res.status(200).send({msg : "logged successfully",data:e})
             }  
         })
         

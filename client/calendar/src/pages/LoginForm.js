@@ -15,6 +15,7 @@ export default class LoginForm extends Component {
         this.state = {
            email:"",
            pass:"",
+           courses:[],
            redirect:false,
 
         };
@@ -40,8 +41,12 @@ export default class LoginForm extends Component {
             else{
                 this.showSuccess()
                 this.setState({
-                    redirect:true
+                    redirect:true,
+                    courses: json.data.courses
                 })
+                localStorage.setItem('username', json.data.username)
+                localStorage.setItem('password', json.data.password)
+
             }
         })
            .catch(error => {  this.setState({error})} );
@@ -66,7 +71,8 @@ export default class LoginForm extends Component {
     render() {
         if(this.state.redirect){
             return(
-                <Redirect to={{pathname:`/home`}}/>
+                
+                <Redirect to={{pathname:`/home-calendar`,state:{username:this.state.email,password:this.state.pass,courses:this.state.courses}}} />
             )
         }
         else{

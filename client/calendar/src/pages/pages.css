@@ -8,16 +8,24 @@
 
 
 }
-.feedpage{
+.home-page{
     overflow: hidden;
-    min-height: 100vh;
+    height: 100%;
+    float: left;    
+}
+.feedpage,.addDeadline{
+    overflow: hidden !important;
+    height: 100%;
     float: left;
+    width: 100% !important;
 }
 
 .feed,.add-form{
-    overflow: hidden;
-    min-height: 100vh;
+    overflow-y: scroll;
+    height: 100%;
     float: left;
     width: 70%;
     margin: 20px;
 }
+
+
