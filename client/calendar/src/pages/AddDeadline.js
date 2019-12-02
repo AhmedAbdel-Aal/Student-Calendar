@@ -8,11 +8,12 @@ import './pages.css'
 const options = [
     { key: '1', text: 'Quiz', value: 'Quiz' },
     { key: '2', text: 'Milestone', value: 'Milestone' },
-    { key: '3', text: 'Assignment', value: 'Assignment' },
-    { key: '4', text: 'Project', value: 'Project' },
-    { key: '5', text: 'Mini-Project', value: 'Mini-Project' },
-    { key: '6', text: 'Midterm', value: 'Midterm' },
-    { key: '7', text: 'Final', value: 'Final' },
+    { key: '3', text: 'Task', value: 'Task' },
+    { key: '4', text: 'Assignment', value: 'Assignment' },
+    { key: '5', text: 'Project', value: 'Project' },
+    { key: '6', text: 'Mini-Project', value: 'Mini-Project' },
+    { key: '7', text: 'Midterm', value: 'Midterm' },
+    { key: '8', text: 'Final', value: 'Final' },
 
   ]
   
