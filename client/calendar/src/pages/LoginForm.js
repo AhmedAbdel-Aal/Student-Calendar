@@ -16,6 +16,7 @@ export default class LoginForm extends Component {
            email:"",
            pass:"",
            courses:[],
+           type:"",
            redirect:false,
 
         };
@@ -42,10 +43,12 @@ export default class LoginForm extends Component {
                 this.showSuccess()
                 this.setState({
                     redirect:true,
-                    courses: json.data.courses
+                    courses: json.data.courses,
+                    type: json.data.type
                 })
                 localStorage.setItem('username', json.data.username)
                 localStorage.setItem('password', json.data.password)
+                localStorage.setItem('type', json.data.type)
 
             }
         })

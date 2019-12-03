@@ -16,8 +16,9 @@ router.post("/login", async(req,res)=>{
       })
       .then((json) => {
         // do something with Apple res
+        console.log(json)
         json.find(e=>{
-
+             
             if(e.username === user && e.password === pass){
                 return res.status(200).send({msg : "logged successfully",data:e})
             }  

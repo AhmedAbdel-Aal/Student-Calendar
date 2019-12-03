@@ -13,6 +13,7 @@ export default class Sidebar extends Component {
       redirect1: false,
       redirect2: false,
       log:false,
+      add:false,
       view1:true,
       view2:true,
 
@@ -26,9 +27,10 @@ handleItemClick2 = (e, { name }) => this.setState({ activeItem2: name })
 view1 =()=>{this.setState({view1 : !this.state.view1})}
 view2 =()=>{this.setState({view2 : !this.state.view2})}
 SignOut =()=>{localStorage.clear();this.setState({log:true})}
+add =()=>{this.setState({add:true})}
 
   render() {
-    const {activeItem1,activeItem2,redirect1,redirect2,log} = this.state;
+    const {activeItem1,activeItem2,redirect1,redirect2,log,add} = this.state;
     if(redirect1){
       return(
         <Redirect to={{pathname:`/home-calendar`,state:{username:this.props.username,password:this.props.password,courses:this.props.courses}}} />
@@ -41,7 +43,11 @@ SignOut =()=>{localStorage.clear();this.setState({log:true})}
     }
     if(log){
       return(
-        <Redirect to={{pathname:`/`}}
+        <Redirect to={{pathname:`/`}}/>
+      )
+    }if(add){
+      return(
+        <Redirect to={{pathname:`/add-deadline`}}/>
       )
     }
     return (
@@ -138,6 +144,12 @@ SignOut =()=>{localStorage.clear();this.setState({log:true})}
      </Menu.Menu>
     }
  </Menu.Item>
+
+ {(localStorage.getItem('type')==="instructor")&&
+ <Menu.Item  onClick={this.add}>
+ <Menu.Header style={{width:"100%",fontSize:"24px",fontWeight:"200"}}>Add Deadline</Menu.Header>
+ </Menu.Item>
+  }
 
     <Menu.Item  onClick={this.SignOut}>
     <Menu.Header style={{width:"100%",fontSize:"24px",fontWeight:"200"}}>Sign out</Menu.Header>
