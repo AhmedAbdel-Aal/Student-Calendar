@@ -69,7 +69,6 @@ export default class LoginForm extends Component {
     }
 
     render() {
-        console.log(this.state)
         if(this.state.redirect){
             return(
                 

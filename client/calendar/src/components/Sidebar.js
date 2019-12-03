@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import { Menu } from 'semantic-ui-react'
-import {Redirect } from 'react-router-dom';
-
 import './sidebar.css'
 
 
@@ -11,40 +9,22 @@ export default class Sidebar extends Component {
     this.state = {
       activeItem1: 'home',
       activeItem2: 'home',
-      redirect1: false,
-      redirect2: false,
-      log:false,
       view1:true,
       view2:true,
 
     };
 }
 
-handleItemClickHome = (e, { name }) => this.setState({ activeItem1: name , redirect1:true })
-handleItemClickFeed = (e, { name }) => this.setState({ activeItem1: name , redirect2:true })
-
+handleItemClick1 = (e, { name }) => this.setState({ activeItem1: name })
 handleItemClick2 = (e, { name }) => this.setState({ activeItem2: name })
 view1 =()=>{this.setState({view1 : !this.state.view1})}
 view2 =()=>{this.setState({view2 : !this.state.view2})}
-SignOut =()=>{localStorage.clear();this.setState({log:true})}
+SignOut =()=>{
+  
+}
 
   render() {
-    const {activeItem1,activeItem2,redirect1,redirect2,log} = this.state;
-    if(redirect1){
-      return(
-        <Redirect to={{pathname:`/home-calendar`,state:{username:this.props.username,password:this.props.password,courses:this.props.courses}}} />
-        )
-    }
-    if(redirect2){
-      return(
-        <Redirect to={{pathname:`/home-feed`,state:{username:this.props.username,password:this.props.password,courses:this.props.courses}}} />
-        )
-    }
-    if(log){
-      return(
-        <Redirect to={{pathname:`/`}}/>
-      )
-    }
+    const {activeItem1,activeItem2} = this.state;
     return (
       <div class="side-nav">
        
@@ -60,13 +40,13 @@ SignOut =()=>{localStorage.clear();this.setState({log:true})}
           <Menu.Item
             name='Calendar View'
             active={activeItem1 === 'Calendar View'}
-            onClick={this.handleItemClickHome}
+            onClick={this.handleItemClick1}
             style={{width:"100%",fontSize:"17px"}}
           />
           <Menu.Item
             name='Feed View'
             active={activeItem1 === 'Feed View'}
-            onClick={this.handleItemClickFeed}
+            onClick={this.handleItemClick1}
             style={{width:"100%",fontSize:"17px"}}
           />
         </Menu.Menu>

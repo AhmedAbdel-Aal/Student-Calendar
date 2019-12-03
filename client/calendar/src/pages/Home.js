@@ -16,8 +16,8 @@ export default class Home extends Component {
         console.log(this.state)
         return (
             <div class="home-page">
-                <SideBar courses={this.state.courses}username={this.state.username}password={this.state.password}></SideBar>
-                <Calendar courses={this.state.courses}username={this.state.username}password={this.state.password}></Calendar>
+                <SideBar></SideBar>
+                <Calendar courses={this.props.location.state.courses}></Calendar>
             </div>
         )
     }
