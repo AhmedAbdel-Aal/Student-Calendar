@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Menu } from 'semantic-ui-react'
 import {Redirect } from 'react-router-dom';
-
 import './sidebar.css'
 
 
@@ -42,7 +41,7 @@ SignOut =()=>{localStorage.clear();this.setState({log:true})}
     }
     if(log){
       return(
-        <Redirect to={{pathname:`/`}}/>
+        <Redirect to={{pathname:`/`}}
       )
     }
     return (
@@ -52,7 +51,7 @@ SignOut =()=>{localStorage.clear();this.setState({log:true})}
 
       <Menu.Item  style={{width:"100%"}} >
 
-      <Menu.Item    onClick={this.view1}>
+      <Menu.Item    onClick={this.view1}> 
         <Menu.Header style={{width:"100%",fontSize:"24px",fontWeight:"500"}} >Deadline view</Menu.Header>
       </Menu.Item>  
         {this.state.view1 &&
