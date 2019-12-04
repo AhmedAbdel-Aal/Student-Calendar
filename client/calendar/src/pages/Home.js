@@ -52,7 +52,6 @@ export default class Home extends Component {
             <div class="home-page">
                 <SideBar courses={this.state.courses}username={this.state.username}password={this.state.password} page={this.props.page} handleTypeClicked={this.handleTypeClicked}></SideBar>
                 <Calendar courses={this.state.courses}username={this.state.username}password={this.state.password} filterType={this.state.filterType}></Calendar>
-                <Footer></Footer>
             </div>
         )
     }

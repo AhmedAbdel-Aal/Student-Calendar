@@ -1,0 +1,72 @@
+.footer{
+    overflow: hidden;
+    background-color: white;
+    color: antiquewhite;
+    padding:5px 30px 5px 30px;
+    font-size:15px;
+    color:#737373;
+    height: 10%;
+    border-top:2px solid#00b200;
+}
+
+.section1{
+    overflow: hidden;
+    width:50% ;
+    height: 100%;
+    float: left;
+    /* border :1px solid black */
+    border-right: 2px solid #555454;
+}
+.logo{
+    float: left;
+    width:20%;
+    /* border :1px solid blue; */
+
+}
+.f-title{
+    font-weight: 600;
+    font-size: 24px;
+    color: #00b200;
+    margin: 0px !important; 
+}
+.f-slogan{
+    font-weight: 600;
+    font-size: 18px;
+    color: #4d6182;
+}
+.section2{
+    overflow: hidden;
+    width:50%;
+    height: 100%;
+    float: left;
+    /* border :1px solid black; */
+    padding-left: 10px;
+}
+.f-feed{
+  overflow: hidden;
+  float: left;
+  width: 50%;
+  height: 100%;
+  padding-right: 20px;
+  border-right: 2px solid #555454;
+}
+.f-feed-header{
+  color: #00b200;
+  text-decoration: underline;
+  margin: 0px !important;
+}
+.f-feed-exp{
+    font-size: 13px;
+}
+
+
+.f-cp{
+    overflow: hidden;
+    float: left;
+    padding: 15px;
+    width: 40%;
+}
+
+.f-cp-title{
+    color: #00b200;
+}
