@@ -37,10 +37,16 @@ export default class Calendar extends React.Component {
       ))
           .then(res =>  res.data)
           .then(json =>{
-            console.log(json.data.courses)  
+           courses = json.data.courses
+           if(this.props.filterType==="All"){ 
             courses = json.data.courses
-            console.log(courses)
-
+        }
+        else{
+            courses = json.data.courses.filter(e=>{
+                if(e.type===this.props.filterType)
+                    return e
+            })
+        }
         })
            .catch(error => {  this.setState({error})} );
 
@@ -69,10 +75,9 @@ export default class Calendar extends React.Component {
     }
 
   calendarComponentRef = React.createRef()
- 
+
   render() {
-    console.log(this.state.calendarEvents)  
-    console.log(this.state.error)
+   console.log(this.props.filterType)
     if(this.state.loading){
         return (
         <div className='demo-app'>

@@ -8,8 +8,8 @@ export default class Sidebar extends Component {
   constructor(props){
     super(props);
     this.state = {
-      activeItem1: 'home',
-      activeItem2: 'home',
+      activeItem1: this.props.page==="home",
+      activeItem2: this.props.page=="feed",
       redirect1: false,
       redirect2: false,
       log:false,
@@ -18,18 +18,43 @@ export default class Sidebar extends Component {
       view2:true,
 
     };
+
 }
 
-handleItemClickHome = (e, { name }) => this.setState({ activeItem1: name , redirect1:true })
-handleItemClickFeed = (e, { name }) => this.setState({ activeItem1: name , redirect2:true })
+componentDidMount=()=>{
+  if(this.props.page==="home"){
+     this.setState({
+       activeItem1:"Calendar View",
+     })
+    }
+     else{
+      this.setState({
+        activeItem1:"Feed View",
+      })
+     }
+  
+}
 
-handleItemClick2 = (e, { name }) => this.setState({ activeItem2: name })
+handleItemClickHome = (e, { name }) =>{ 
+  if(this.state.activeItem1 === "Feed View")
+  this.setState({ activeItem1: name , redirect1:true })
+  }
+
+handleItemClickFeed = (e, { name }) =>{
+  if(this.state.activeItem1==="Calendar View")
+   this.setState({ activeItem1: name , redirect2:true })
+}
+
+handleItemClick2 = (e, { name }) =>{ 
+  this.props.handleTypeClicked(name)
+  this.setState({ activeItem2: name })}
 view1 =()=>{this.setState({view1 : !this.state.view1})}
 view2 =()=>{this.setState({view2 : !this.state.view2})}
 SignOut =()=>{localStorage.clear();this.setState({log:true})}
 add =()=>{this.setState({add:true})}
 
   render() {
+    console.log(this.state)
     const {activeItem1,activeItem2,redirect1,redirect2,log,add} = this.state;
     if(redirect1){
       return(
@@ -79,71 +104,7 @@ add =()=>{this.setState({add:true})}
     </Menu.Item>
 
 
-    <Menu.Item  style={{width:"100%"}} >
-
-    <Menu.Item  onClick={this.view2}>
-    <Menu.Header style={{width:"100%",fontSize:"24px",fontWeight:"200"}}>Deadline type</Menu.Header>
-    </Menu.Item>
-
-    {this.state.view2 &&
-     <Menu.Menu>
-        <Menu.Item
-         name='All'
-         active={activeItem2 === 'All'}
-         onClick={this.handleItemClick2}
-         style={{width:"100%",fontSize:"17px"}}
-        />
-       <Menu.Item
-         name='Task'
-         active={activeItem2 === 'Task'}
-         onClick={this.handleItemClick2}
-         style={{width:"100%",fontSize:"17px"}}
-       />
-       <Menu.Item
-         name='Assignment'
-         active={activeItem2 === 'Assignment'}
-         onClick={this.handleItemClick2}
-         style={{width:"100%",fontSize:"17px"}}
-       />
-       <Menu.Item
-         name='Mini-Project'
-         active={activeItem2 === 'Mini-Project'}
-         onClick={this.handleItemClick2}
-         style={{width:"100%",fontSize:"17px"}}
-       />
-       <Menu.Item
-         name='Project'
-         active={activeItem2 === 'Project'}
-         onClick={this.handleItemClick2}
-         style={{width:"100%",fontSize:"17px"}}
-       />
-       <Menu.Item
-         name='Milestone'
-         active={activeItem2 === 'Milestone'}
-         onClick={this.handleItemClick2}
-         style={{width:"100%",fontSize:"17px"}}
-       />
-       <Menu.Item
-         name='Quiz'
-         active={activeItem2 === 'Quiz'}
-         onClick={this.handleItemClick2}
-         style={{width:"100%",fontSize:"17px"}}
-       />
-       <Menu.Item
-         name='Midterm'
-         active={activeItem2 === 'Midterm'}
-         onClick={this.handleItemClick2}
-         style={{width:"100%",fontSize:"17px"}}
-       />
-       <Menu.Item
-         name='Final'
-         active={activeItem2 === 'Final'}
-         onClick={this.handleItemClick2}
-         style={{width:"100%",fontSize:"17px"}}
-       />
-     </Menu.Menu>
-    }
- </Menu.Item>
+    
 
  {(localStorage.getItem('type')==="instructor")&&
  <Menu.Item  onClick={this.add}>

@@ -13,8 +13,8 @@ function App() {
         <BrowserRouter>
           <Switch>
             <Route exact path="/" render={props => <Login {...props}/>} />
-            <Route exact path="/home-calendar" render={props => <Home {...props}/> } />
-            <Route exact path="/home-feed" render={props => <Feed {...props}/> } />
+            <Route exact path="/home-calendar" render={props => <Home {...props} page="home"/> } />
+            <Route exact path="/home-feed" render={props => <Feed {...props}page="feed"/> } />
             <Route exact path="/add-deadline" render={props => <AddDeadline {...props}/> } />
 
           </Switch>
