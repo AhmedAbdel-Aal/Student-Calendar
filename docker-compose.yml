@@ -12,7 +12,7 @@ services:
       - .:/calendar
   server:
     container_name: backEnd
-restart: always
+    restart: always
     build:
       context: ./server
       dockerfile: DOCKERFILE
