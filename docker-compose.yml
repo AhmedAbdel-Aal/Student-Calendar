@@ -1,15 +1,5 @@
 version: "3"
 services:
-  server:
-    container_name: backEnd
-    restart: always
-    build:
-      context: ./server
-      dockerfile: DOCKERFILE
-    ports:
-      - "5000:5000"
-    volumes:
-      - .:/server
   calendar:
     container_name: frontEnd
     restart: always
