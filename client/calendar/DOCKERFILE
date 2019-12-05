@@ -5,7 +5,7 @@ WORKDIR ./calendar
 
 COPY package*.json ./
 
-USER node
+USER root
 
 RUN npm install
 
