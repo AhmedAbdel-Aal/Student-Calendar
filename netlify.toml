@@ -1,6 +1,6 @@
 [build]
   command = "npm run build"
-  publish="/client/calendar/build"
+  publish="/build"
   base = "/client/calendar"
 [[redirects]]
   from = "/*"
