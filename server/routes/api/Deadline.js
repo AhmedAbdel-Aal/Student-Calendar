@@ -3,8 +3,8 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const ObjectId = require("mongodb").ObjectID;
 mongoose.set("useFindAndModify", false);
-const deadline = require("../../models/deadline");
-const validator = require("../../validations/deadlineValidations");
+const deadline = require("../../models/Deadline");
+const validator = require("../../validations/DeadlineValidations");
 
 router.get("/", async (req, res) => {
   const deadlines = await deadline.find();
