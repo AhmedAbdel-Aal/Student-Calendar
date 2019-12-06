@@ -1,3 +1,8 @@
- command = "npm run build"
+[build]
+  command = "npm run build"
   publish="client/calendar/build"
   base = "client/calendar"
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
