@@ -50,7 +50,7 @@ export default class AddDeadline extends Component {
             professorName : "temp name",
             description: (this.state.description.length) > 0 ? this.state.description : "None"
         }
-        await axios.post("/api/deadline",body,
+        await axios.post("https://gucalendar.herokuapp.com/api/deadline",body,
         (       'Access-Control-Allow-Headers',
         'Origin, X-Requested-With, Content-Type, Accept'
       ))

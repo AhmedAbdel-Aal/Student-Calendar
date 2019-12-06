@@ -29,7 +29,7 @@ export default class LoginForm extends Component {
             username : this.state.email,
             password : this.state.pass
         }
-        await axios.post("/api/student/login",body,
+        await axios.post("https://gucalendar.herokuapp.com/api/student/login",body,
         (       'Access-Control-Allow-Headers',
         'Origin, X-Requested-With, Content-Type, Accept'
       ))

@@ -31,7 +31,7 @@ export default class Calendar extends React.Component {
             username : localStorage.getItem('username'),
             password : localStorage.getItem('password')
         }
-        await axios.post("/api/student/login",body,
+        await axios.post("https://gucalendar.herokuapp.com/api/student/login",body,
         (       'Access-Control-Allow-Headers',
         'Origin, X-Requested-With, Content-Type, Accept'
       ))
@@ -50,7 +50,7 @@ export default class Calendar extends React.Component {
         })
            .catch(error => {  this.setState({error})} );
 
-        await axios.get("/api/deadline",
+        await axios.get("https://gucalendar.herokuapp.com/api/deadline",
         (       'Access-Control-Allow-Headers',
         'Origin, X-Requested-With, Content-Type, Accept'
       ))
