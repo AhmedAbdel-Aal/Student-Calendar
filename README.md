@@ -18,7 +18,16 @@ Run client command:
 The server runs on port 5000.
 The client runs on port 3000.
 
-To run the application docker node:
+To run the application docker node we have to either run the server and the client independantly using docker run or run them both using docker-compose.
+Run server command:
+
+         docker run -p 5000:5000 backEnd
+         
+Run client command:
+
+         docker run -p 3000:3000 frontEnd
+
+Run both command:
 
          docker-compose up
          
