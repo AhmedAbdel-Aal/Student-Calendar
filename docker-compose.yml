@@ -17,7 +17,7 @@ services:
       context: ./client/calendar
       dockerfile: DOCKERFILE
     ports:
-      - "80:3000"
+      - "3000:3000"
     volumes:
       - .:/calendar
 
