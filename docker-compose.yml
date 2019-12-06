@@ -6,19 +6,37 @@ services:
     build:
       context: ./server
       dockerfile: DOCKERFILE
+    expose:
+      - 5000
     ports:
       - "5000:5000"
     volumes:
       - .:/server
+    command: npm start
+    links:
+      - db
   calendar:
     container_name: frontEnd
     restart: always
     build:
       context: ./client/calendar
       dockerfile: DOCKERFILE
+    environment:
+      - REACT_APP_PORT=3000
+      - CHOKIDAR_USEPOLLING=true
+    expose:
+      - 3000
     ports:
       - "3000:3000"
     volumes:
       - .:/calendar
+    links:
+      - server
+    command: npm start
+  db:
+    image: mongo
+    ports:
+      - 27017:27017
+    restart: always
 
   
