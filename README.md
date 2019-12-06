@@ -29,4 +29,4 @@ While running the application with node, the dependencies can be installed in bo
          
 When running the application with docker, the dependencies are automatically installed.
 
-The application uses MongoDB and for the application to function correctly, a config file named "keys_dev.js", containing a MongoDB URI, loacted in a folder named "config" in the server part is needed.
+The application uses MongoDB and for the application to function correctly, a config file named "keys_dev.js", containing a MongoDB URI, located in a folder named "config" in the server part is needed.
