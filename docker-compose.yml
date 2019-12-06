@@ -14,7 +14,7 @@ services:
     container_name: backEnd
     restart: always
     build:
-      context: ../../server
+      context: ./server
       dockerfile: DOCKERFILE
     ports:
       - "5000:5000"
