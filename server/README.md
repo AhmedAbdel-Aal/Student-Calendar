@@ -6,14 +6,19 @@ Once a student sign in, all the courses' deadlines, he's enrolled in, are displa
 To run the application through node we have to run the server and the client.
 Run server command:
 
-   cd server
-   node server
+         cd server
+         node server
    
 Run client command:
 
-   cd client
-   cd calendar
-   npm start
+         cd client
+         cd calendar
+         npm start
    
 The server runs on port 5000.
 The client runs on port 3000.
+
+To run the application docker node:
+
+         docker-compose up
+         
