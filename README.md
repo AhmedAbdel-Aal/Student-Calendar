@@ -22,3 +22,9 @@ To run the application docker node:
 
          docker-compose up
          
+The dependencies used are found in package.json file.
+While running the application with node, the dependencies can be installed in both client and server using the command:
+
+         npm i
+         
+when running the application with docker, the dependencies are automatically installed.
